@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DashBoard from "./Pages/DashBoard";
 import SignIn from "./Pages/signIn";
 import SignUp from "./Pages/signUp";

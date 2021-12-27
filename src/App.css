@@ -10,6 +10,9 @@
   box-shadow: 0px 5px 7px 1px #e4e1e1;
   align-items: center;
 }
+.nav-bar .nav-left img {
+  height: 6vh;
+}
 .nav-bar .icon {
   /* color: rgb(70, 67, 67); */
   color: rgb(73, 68, 68);

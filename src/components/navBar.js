@@ -5,12 +5,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import { useHistory } from "react-router-dom";
+import logo from "./logo.png";
 function NavBar() {
   const history = useHistory();
   return (
     <div className="nav-bar">
       <div className="nav-left">
-        <h3>SMART-SHOP</h3>
+        <img src={logo} />
+        {/* <h3>SMART-SHOP</h3> */}
       </div>
       <div className="nav-input">
         <SearchIcon className="icon" />

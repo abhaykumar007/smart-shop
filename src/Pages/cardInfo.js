@@ -5,7 +5,28 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ReactStars from "react-rating-stars-component";
 function CardInfo() {
   let data = JSON.parse(localStorage.getItem("card"));
+  data.quantity = 1;
   console.log(data);
+
+  function handelAddToCart() {
+    let ref = [];
+    let prevData = JSON.parse(localStorage.getItem("cart"));
+    let idx = prevData.findIndex((element) => element.id == data.id);
+    console.log(" cardInfo prevData", prevData);
+    console.log(" cardInfo idx", idx);
+    if (idx < 0) {
+      if (prevData == undefined || prevData == null) {
+        ref.push(data);
+      } else {
+        ref.push(...prevData);
+        ref.push(data);
+      }
+      localStorage.setItem("cart", JSON.stringify(ref));
+      alert("ITEM IS ADD TO CART");
+    } else {
+      alert("ITEM IS ALREADY IN CART");
+    }
+  }
   return (
     <div>
       <NavBar />
@@ -31,7 +52,7 @@ function CardInfo() {
             <h2>$ {data.price}</h2>
             <div className="cardinfo-details-button">
               <div className="cardinfo-addToCart">
-                <button>
+                <button onClick={handelAddToCart}>
                   <ShoppingCartIcon /> ADD TO CART
                 </button>
               </div>

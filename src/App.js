@@ -5,6 +5,7 @@ import DashBoard from "./Pages/DashBoard";
 import SignIn from "./Pages/signIn";
 import SignUp from "./Pages/signUp";
 import CardInfo from "./Pages/cardInfo";
+import Cart from "./Pages/cart";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" exact component={DashBoard} />
-            <Route path="/signin" exact component={SignIn} />
+            {/* <Route path="/signin" exact component={SignIn} /> */}
             <Route path="/signup" exact component={SignUp} />
             <Route path="/cardinfo" exact component={CardInfo} />
+            <Route path="/cart" exact component={Cart} />
           </Switch>
         </Router>
       </div>

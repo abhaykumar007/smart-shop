@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NavBar from "../components/navBar";
+import { useHistory } from "react-router-dom";
+import { signIn } from "./../Helpers/auth";
 
 function Copyright(props) {
   return (
@@ -34,14 +36,30 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const history = useHistory();
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+    let email = data.get("email");
+    let password = data.get("password");
     console.log({
       email: data.get("email"),
       password: data.get("password"),
     });
+
+    if (email && password) {
+      try {
+        const user = await signIn(email, password);
+        console.log("Sign Up Successfully", user.user.email);
+        // localStorage.setItem("ecomUser", user.user.email);
+        //  history.push("/dashboard");
+      } catch (err) {
+        console.log("Error in Signing Up", err);
+        alert(err.message);
+      }
+    } else {
+      alert("Input can't be empty");
+    }
   };
 
   return (
@@ -109,7 +127,11 @@ export default function SignIn() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link
+                    href="#"
+                    variant="body2"
+                    onClick={() => history.push("/signup")}
+                  >
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

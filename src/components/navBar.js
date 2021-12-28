@@ -19,10 +19,13 @@ function NavBar() {
         <input />
       </div>
       <div className="nav-right">
-        <PersonIcon onClick={() => history.push("/signup")} className="icon" />
+        <PersonIcon onClick={() => history.push("/signin")} className="icon" />
         <HomeIcon onClick={() => history.push("/")} className="icon" />
         <FavoriteBorderIcon className="icon" />
-        <ShoppingCartIcon className="icon" />
+        <ShoppingCartIcon
+          onClick={() => history.push("/cart")}
+          className="icon"
+        />
       </div>
     </div>
   );

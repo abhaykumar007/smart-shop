@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/smart-shop/static/css/main.673663e2.css",
-    "main.js": "/smart-shop/static/js/main.3b97fa05.js",
+    "main.css": "/smart-shop/static/css/main.cfb43808.css",
+    "main.js": "/smart-shop/static/js/main.5fbd6518.js",
     "static/js/787.f88991e5.chunk.js": "/smart-shop/static/js/787.f88991e5.chunk.js",
     "static/media/logo.png": "/smart-shop/static/media/logo.179ae9550321b61f260c.png",
     "index.html": "/smart-shop/index.html",
-    "main.673663e2.css.map": "/smart-shop/static/css/main.673663e2.css.map",
-    "main.3b97fa05.js.map": "/smart-shop/static/js/main.3b97fa05.js.map",
+    "main.cfb43808.css.map": "/smart-shop/static/css/main.cfb43808.css.map",
+    "main.5fbd6518.js.map": "/smart-shop/static/js/main.5fbd6518.js.map",
     "787.f88991e5.chunk.js.map": "/smart-shop/static/js/787.f88991e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.673663e2.css",
-    "static/js/main.3b97fa05.js"
+    "static/css/main.cfb43808.css",
+    "static/js/main.5fbd6518.js"
   ]
 }

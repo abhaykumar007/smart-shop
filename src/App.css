@@ -59,6 +59,9 @@
   padding-bottom: 2vh;
   padding-top: 2vh;
 }
+.loading {
+  margin-left: 25vw;
+}
 
 /* ================== Card Info ================ */
 .cardinfo {

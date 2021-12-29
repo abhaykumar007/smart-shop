@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { useHistory } from "react-router-dom";
 import Carouselcard from "../components/carousel";
 import Footer from "../components/footer";
-
+import loading from "../components/loading.gif";
 function DashBoard() {
   const [product, setProduct] = useState([]);
   const history = useHistory();
@@ -59,7 +59,10 @@ function DashBoard() {
             </div>
           ))
         ) : (
-          <h1>Loding..........</h1>
+          <div className="loading">
+            <img src={loading} alt="loading" />
+            <div></div>
+          </div>
         )}
       </div>
       <Footer />

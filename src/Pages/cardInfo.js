@@ -3,11 +3,29 @@ import NavBar from "../components/navBar";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ReactStars from "react-rating-stars-component";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
+
 function CardInfo() {
   let data = JSON.parse(localStorage.getItem("card"));
   data.quantity = 1;
   console.log(data);
 
+  function notification(title, message, type) {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: type,
+      insert: "top",
+      container: "top-center",
+      animationIn: ["animated", "animate__fadeIn"],
+      animationOut: ["animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 1000,
+      },
+    });
+  }
   function handelAddToCart() {
     let ref = [];
     let prevData = JSON.parse(localStorage.getItem("cart"));
@@ -15,24 +33,25 @@ function CardInfo() {
     if (prevData == undefined || prevData == null) {
       ref.push(data);
       localStorage.setItem("cart", JSON.stringify(ref));
-      alert("ITEM IS ADD TO CART");
+      console.log("ITEM IS ADD TO CART");
+      notification("Wonderful!", "ITEM IS ADD TO CART", "success");
     } else {
       let idx = prevData.findIndex((element) => element.id == data.id);
       if (idx < 0) {
         ref.push(...prevData);
         ref.push(data);
         localStorage.setItem("cart", JSON.stringify(ref));
-        alert("ITEM IS ADD TO CART");
+        notification("Wonderful!", "ITEM IS ADD TO CART", "success");
       } else {
-        alert("ITEM IS ALREADY IN CART");
+        notification("Worning!!!", "ITEM IS ALREADY IN A CART", "danger");
       }
-      console.log(" cardInfo prevData", prevData);
-      console.log(" cardInfo idx", idx);
     }
   }
   return (
     <div>
+      <ReactNotification />
       <NavBar />
+
       <main className="cardinfo">
         <div className="cardinfo-img">
           <img src={data.image} />

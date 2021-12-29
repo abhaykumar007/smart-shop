@@ -4,6 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import emptyCart from "./../components/emptyCart.gif";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 
 function Cart() {
   const history = useHistory();
@@ -24,6 +27,20 @@ function Cart() {
     history.push("/cardinfo");
   }
 
+  function notification(title, message, type) {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: type,
+      insert: "top",
+      container: "top-center",
+      animationIn: ["animated", "animate__fadeIn"],
+      animationOut: ["animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 1000,
+      },
+    });
+  }
   function handelQuamtityButton(ref, str) {
     let idx = data.indexOf(ref);
     let variable = data.slice(0, idx);
@@ -32,7 +49,8 @@ function Cart() {
       variable.push(ref);
     } else if (str == "SUB") {
       if (ref.quantity == 1) {
-        alert(`YOU REMOVE THIS ITEM FROM CART`);
+        // alert(`YOU REMOVE THIS ITEM FROM CART`);
+        notification("Worning!!!", "YOU REMOVE THIS ITEM FROM CART", "danger");
       } else {
         ref.quantity = ref.quantity - 1;
         variable.push(ref);
@@ -40,6 +58,7 @@ function Cart() {
     }
     variable.push(...data.slice(idx + 1, data.length));
     localStorage.setItem("cart", JSON.stringify(variable));
+
     history.push("/cart");
   }
 
@@ -47,12 +66,13 @@ function Cart() {
     let variable = data.filter((element) => element !== ref);
     localStorage.setItem("cart", JSON.stringify(variable));
     history.push("/cart");
+    notification("Worning!!!", "ITEM REMOVED FROM CART", "danger");
   }
 
   return (
     <div>
+      <ReactNotification />
       <NavBar />
-
       {data !== undefined && data !== null && data.length > 0 ? (
         <div className="cart-parent">
           <div className="cart">
@@ -142,7 +162,13 @@ function Cart() {
             </div>
 
             <div className="cart-price-button">
-              <button>PLACE ORDER</button>
+              <button
+                onClick={() =>
+                  notification("Wonderful!", "ORDER PLACED", "success")
+                }
+              >
+                PLACE ORDER
+              </button>
             </div>
           </div>
         </div>

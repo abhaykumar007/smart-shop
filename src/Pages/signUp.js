@@ -1,3 +1,4 @@
+import { React, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,7 +14,10 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useHistory } from "react-router-dom";
 import NavBar from "../components/navBar";
-import { useState } from "react";
+import { signUp } from "./../Helpers/auth";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 
 function Copyright(props) {
   return (
@@ -41,22 +45,52 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [tick, setTick] = useState(false);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+
+  function notification(title, message, type) {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: type,
+      insert: "top",
+      container: "top-center",
+      animationIn: ["animated", "animate__fadeIn"],
+      animationOut: ["animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 1000,
+      },
     });
-    setPassword(data.get("password"));
-    setEmail(data.get("email"));
-    console.log("email", email, password);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("email", name, lastName, email, password, tick);
+
+    if (name && lastName && email && password && tick) {
+      try {
+        await signUp(email, password);
+        console.log("Signup Successfully");
+        notification(
+          "Wonderful!",
+          `${name} ${lastname} Successfully Signup`,
+          "success"
+        );
+        history.push("/signin");
+      } catch (err) {
+        console.log("error in signup", err);
+        notification("Error Occure", err, "danger");
+        alert(err.message);
+      }
+    } else {
+      //   alert("Input Can't be empty ..");
+      notification("Error Occure", "Fill all fields", "danger");
+    }
   };
 
   const history = useHistory();
 
   return (
     <div>
+      <ReactNotification />
       <NavBar />
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
@@ -91,6 +125,7 @@ export default function SignUp() {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -101,6 +136,7 @@ export default function SignUp() {
                     label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
+                    onChange={(e) => setLastName(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -111,6 +147,7 @@ export default function SignUp() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -122,6 +159,7 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -130,6 +168,7 @@ export default function SignUp() {
                       <Checkbox value="allowExtraEmails" color="primary" />
                     }
                     label="I want to receive inspiration, marketing promotions and updates via email."
+                    onChange={(e) => setTick(e.target.checked)}
                   />
                 </Grid>
               </Grid>

@@ -1,3 +1,4 @@
+import { React, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,6 +15,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NavBar from "../components/navBar";
 import { useHistory } from "react-router-dom";
 import { signIn } from "./../Helpers/auth";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
 
 function Copyright(props) {
   return (
@@ -37,33 +41,48 @@ const theme = createTheme();
 
 export default function SignIn() {
   const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [terms, setTerms] = useState(false);
+
+  function notification(title, message, type) {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: type,
+      insert: "top",
+      container: "top-center",
+      animationIn: ["animated", "animate__fadeIn"],
+      animationOut: ["animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 1000,
+      },
+    });
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    let email = data.get("email");
-    let password = data.get("password");
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
 
-    if (email && password) {
+    if (email && password && terms) {
       try {
         const user = await signIn(email, password);
-        console.log("Sign Up Successfully", user.user.email);
+        // console.log("Sign Up Successfully", email);
         // localStorage.setItem("ecomUser", user.user.email);
-        //  history.push("/dashboard");
+        notification("Wonderful!", "Sign in Successfully", "success");
+        history.push("/");
       } catch (err) {
         console.log("Error in Signing Up", err);
-        alert(err.message);
+        notification("Error Occure", err, "danger");
+        // alert(err.message);
       }
     } else {
-      alert("Input can't be empty");
+      // alert("Input can't be empty");
+      notification("Error Occure", "Fill all fields", "danger");
     }
   };
 
   return (
     <div>
+      <ReactNotification />
       <NavBar />
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
@@ -97,6 +116,7 @@ export default function SignIn() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -107,10 +127,12 @@ export default function SignIn() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
+                onChange={(e) => setTerms(e.target.checked)}
               />
               <Button
                 type="submit"

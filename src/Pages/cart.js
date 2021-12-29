@@ -12,7 +12,7 @@ function Cart() {
   const history = useHistory();
   const [price, setPrice] = useState();
   let data = JSON.parse(localStorage.getItem("cart"));
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     let ref = 0;

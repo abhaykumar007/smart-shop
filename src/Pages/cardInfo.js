@@ -10,7 +10,7 @@ import { store } from "react-notifications-component";
 function CardInfo() {
   let data = JSON.parse(localStorage.getItem("card"));
   data.quantity = 1;
-  console.log(data);
+  // console.log(data);
 
   function notification(title, message, type) {
     store.addNotification({
@@ -33,7 +33,7 @@ function CardInfo() {
     if (prevData == undefined || prevData == null) {
       ref.push(data);
       localStorage.setItem("cart", JSON.stringify(ref));
-      console.log("ITEM IS ADD TO CART");
+      // console.log("ITEM IS ADD TO CART");
       notification("Wonderful!", "ITEM IS ADD TO CART", "success");
     } else {
       let idx = prevData.findIndex((element) => element.id == data.id);

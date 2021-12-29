@@ -161,7 +161,6 @@
 .cart .cart-img img {
   height: 30vh;
   width: 10vw;
-  /* margin-left: 3vw; */
 }
 .cart .cart-body {
   height: 30vh;
@@ -277,6 +276,7 @@
 .empty-cart .sad-icon {
   color: #f35202;
   font-size: 45px;
+  margin-left: 2vh;
 }
 .empty-cart h1 {
   display: flex;

@@ -11,20 +11,23 @@ function CardInfo() {
   function handelAddToCart() {
     let ref = [];
     let prevData = JSON.parse(localStorage.getItem("cart"));
-    let idx = prevData.findIndex((element) => element.id == data.id);
-    console.log(" cardInfo prevData", prevData);
-    console.log(" cardInfo idx", idx);
-    if (idx < 0) {
-      if (prevData == undefined || prevData == null) {
-        ref.push(data);
-      } else {
-        ref.push(...prevData);
-        ref.push(data);
-      }
+
+    if (prevData == undefined || prevData == null) {
+      ref.push(data);
       localStorage.setItem("cart", JSON.stringify(ref));
       alert("ITEM IS ADD TO CART");
     } else {
-      alert("ITEM IS ALREADY IN CART");
+      let idx = prevData.findIndex((element) => element.id == data.id);
+      if (idx < 0) {
+        ref.push(...prevData);
+        ref.push(data);
+        localStorage.setItem("cart", JSON.stringify(ref));
+        alert("ITEM IS ADD TO CART");
+      } else {
+        alert("ITEM IS ALREADY IN CART");
+      }
+      console.log(" cardInfo prevData", prevData);
+      console.log(" cardInfo idx", idx);
     }
   }
   return (

@@ -71,7 +71,7 @@ export default function SignUp() {
         console.log("Signup Successfully");
         notification(
           "Wonderful!",
-          `${name} ${lastname} Successfully Signup`,
+          `${name} ${lastName} Successfully Signup`,
           "success"
         );
         history.push("/signin");

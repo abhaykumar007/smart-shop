@@ -13,6 +13,7 @@ import Footer from "../components/footer";
 function DashBoard() {
   const [product, setProduct] = useState([]);
   const history = useHistory();
+
   async function getData() {
     let response = await fetch("https://fakestoreapi.com/products");
     let data = await response.json();
@@ -20,7 +21,7 @@ function DashBoard() {
   }
 
   useEffect(() => {
-    getData();
+    return getData();
   }, []);
 
   function handelViewMore(info) {

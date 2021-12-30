@@ -83,7 +83,7 @@ function CardInfo() {
                 </button>
               </div>
               <div className="cardinfo-buyNow">
-                <button>
+                <button onClick={() => history.push("/checkout")}>
                   <FlashOnIcon /> BUY NOW
                 </button>
               </div>

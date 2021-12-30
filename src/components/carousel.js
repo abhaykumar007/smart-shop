@@ -9,7 +9,7 @@ import card5 from "./Carousel/card5.jpg";
 function Carouselcard() {
   return (
     <div className="carousel">
-      <Carousel infiniteLoop interval={5000} autoPlay showThumbs={false}>
+      <Carousel infiniteLoop interval={3000} autoPlay showThumbs={false}>
         <div className="carouselCard">
           <img src={card2} alt="card1" />
         </div>

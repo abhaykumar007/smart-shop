@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/smart-shop/static/css/main.8cb39e43.css",
-    "main.js": "/smart-shop/static/js/main.c88b6f69.js",
+    "main.css": "/smart-shop/static/css/main.cf5a9ac8.css",
+    "main.js": "/smart-shop/static/js/main.85537480.js",
     "static/js/787.f88991e5.chunk.js": "/smart-shop/static/js/787.f88991e5.chunk.js",
     "static/media/card2.png": "/smart-shop/static/media/card2.fa107726d4e9f5ecc63b.png",
     "static/media/card4.jpg": "/smart-shop/static/media/card4.ae5a420fca5988cdd362.jpg",
+    "static/media/loading.gif": "/smart-shop/static/media/loading.51279b93e1b2c905f7ea.gif",
     "static/media/card5.jpg": "/smart-shop/static/media/card5.0470b3a04c9c8c19c8f5.jpg",
     "static/media/emptyCart.gif": "/smart-shop/static/media/emptyCart.4f1e2972307ae534906f.gif",
     "static/media/card1.jpg": "/smart-shop/static/media/card1.92a0792083bfcfa27d7e.jpg",
-    "static/media/loading.gif": "/smart-shop/static/media/loading.24b933aad9bad942fb6f.gif",
     "static/media/card3.jpg": "/smart-shop/static/media/card3.239e7973135464b133f2.jpg",
     "static/media/logo.png": "/smart-shop/static/media/logo.179ae9550321b61f260c.png",
     "index.html": "/smart-shop/index.html",
-    "main.8cb39e43.css.map": "/smart-shop/static/css/main.8cb39e43.css.map",
-    "main.c88b6f69.js.map": "/smart-shop/static/js/main.c88b6f69.js.map",
+    "main.cf5a9ac8.css.map": "/smart-shop/static/css/main.cf5a9ac8.css.map",
+    "main.85537480.js.map": "/smart-shop/static/js/main.85537480.js.map",
     "787.f88991e5.chunk.js.map": "/smart-shop/static/js/787.f88991e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8cb39e43.css",
-    "static/js/main.c88b6f69.js"
+    "static/css/main.cf5a9ac8.css",
+    "static/js/main.85537480.js"
   ]
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/navBar";
 import { Link, useHistory } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
-import emptyCart from "./../components/emptyCart.gif";
+import emptyCart from "./../components/documents/emptyCart.gif";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";

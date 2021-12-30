@@ -22,7 +22,7 @@ function App() {
       <Route
         path={path}
         render={(props) =>
-          user ? <Component {...props} /> : <Redirect to="/signin" />
+          user ? <Component {...props} /> : <Redirect to="/signup" />
         }
       />
     );

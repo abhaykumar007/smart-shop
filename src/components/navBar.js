@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import { useHistory } from "react-router-dom";
-import logo from "./logo.png";
+import logo from "./documents/logo.png";
 function NavBar() {
   const history = useHistory();
   let cart = JSON.parse(localStorage.getItem("cart"));

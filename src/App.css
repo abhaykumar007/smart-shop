@@ -68,8 +68,10 @@
   padding-bottom: 2vh;
   padding-top: 2vh;
 }
-.loading {
+.loading img {
   margin-left: 25vw;
+  height: 50vh;
+  width: 20vw;
 }
 
 /* ================== Card Info ================ */

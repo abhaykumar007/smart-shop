@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { useHistory } from "react-router-dom";
 import Carouselcard from "../components/carousel";
 import Footer from "../components/footer";
-import loading from "../components/loading.gif";
+import loading from "../components/documents/loading.gif";
 function DashBoard() {
   const [product, setProduct] = useState([]);
   const history = useHistory();

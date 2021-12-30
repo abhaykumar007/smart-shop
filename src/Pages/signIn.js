@@ -65,19 +65,15 @@ export default function SignIn() {
     if (email && password && terms) {
       try {
         const user = await signIn(email, password);
-        // console.log("Sign Up Successfully", email);
-        // localStorage.setItem("ecomUser", user.user.email);
+
         notification("Wonderful!", "Sign in Successfully", "success");
         localStorage.setItem("userEcom", email);
         history.push("/");
       } catch (err) {
         console.log("Error in Signing Up", err);
         notification("Error Occure", err.message, "danger");
-        // alert(err.message);
       }
     } else {
-      // alert("Input can't be empty");
-      // notification("Error Occure", "Fill all fields", "danger");
       notification(
         "Input Can't be empty ..",
         "Please Fill All the Fields",

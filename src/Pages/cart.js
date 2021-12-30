@@ -69,6 +69,11 @@ function Cart() {
     notification("Worning!!!", "ITEM REMOVED FROM CART", "danger");
   }
 
+  function handelPlaceOrder() {
+    notification("Wonderful!", "ORDER PLACED", "success");
+    history.push("/checkout");
+  }
+
   return (
     <div>
       <ReactNotification />
@@ -162,13 +167,7 @@ function Cart() {
             </div>
 
             <div className="cart-price-button">
-              <button
-                onClick={() =>
-                  notification("Wonderful!", "ORDER PLACED", "success")
-                }
-              >
-                PLACE ORDER
-              </button>
+              <button onClick={handelPlaceOrder}>PLACE ORDER</button>
             </div>
           </div>
         </div>

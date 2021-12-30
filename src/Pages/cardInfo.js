@@ -6,8 +6,10 @@ import ReactStars from "react-rating-stars-component";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
+import { useHistory } from "react-router-dom";
 
 function CardInfo() {
+  const history = useHistory();
   let data = JSON.parse(localStorage.getItem("card"));
   data.quantity = 1;
   // console.log(data);
@@ -35,6 +37,7 @@ function CardInfo() {
       localStorage.setItem("cart", JSON.stringify(ref));
       // console.log("ITEM IS ADD TO CART");
       notification("Wonderful!", "ITEM IS ADD TO CART", "success");
+      setTimeout(() => history.push("/cardinfo"), 1000);
     } else {
       let idx = prevData.findIndex((element) => element.id == data.id);
       if (idx < 0) {
@@ -42,6 +45,7 @@ function CardInfo() {
         ref.push(data);
         localStorage.setItem("cart", JSON.stringify(ref));
         notification("Wonderful!", "ITEM IS ADD TO CART", "success");
+        setTimeout(() => history.push("/cardinfo"), 1000);
       } else {
         notification("Worning!!!", "ITEM IS ALREADY IN A CART", "danger");
       }

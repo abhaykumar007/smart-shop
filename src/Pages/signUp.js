@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -40,6 +40,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -56,7 +57,7 @@ export default function SignUp() {
       animationIn: ["animated", "animate__fadeIn"],
       animationOut: ["animated", "animate__fadeOut"],
       dismiss: {
-        duration: 1000,
+        duration: 2000,
       },
     });
   }
@@ -77,16 +78,18 @@ export default function SignUp() {
         history.push("/signin");
       } catch (err) {
         console.log("error in signup", err);
-        notification("Error Occure", err, "danger");
-        alert(err.message);
+        notification("Error Occure", err.message, "danger");
+        // alert(err.message);
       }
     } else {
       //   alert("Input Can't be empty ..");
-      notification("Error Occure", "Fill all fields", "danger");
+      notification(
+        "Input Can't be empty ..",
+        "Please Fill All the Fields",
+        "danger"
+      );
     }
   };
-
-  const history = useHistory();
 
   return (
     <div>
@@ -182,9 +185,7 @@ export default function SignUp() {
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    Already have an account? Sign in
-                  </Link>
+                  <Link to="/signin">{"Already have an account? Sign in"}</Link>
                 </Grid>
               </Grid>
             </Box>

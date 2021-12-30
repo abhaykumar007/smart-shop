@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 import logo from "./logo.png";
 function NavBar() {
   const history = useHistory();
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
   return (
     <div className="nav-bar">
       <div className="nav-left">
@@ -22,10 +24,19 @@ function NavBar() {
         <PersonIcon onClick={() => history.push("/signin")} className="icon" />
         <HomeIcon onClick={() => history.push("/")} className="icon" />
         <FavoriteBorderIcon className="icon" />
-        <ShoppingCartIcon
-          onClick={() => history.push("/cart")}
-          className="icon"
-        />
+        <div className="nav-cart">
+          <ShoppingCartIcon
+            onClick={() => history.push("/cart")}
+            className="icon"
+          />
+          {cart?.length > 0 ? (
+            <div className="nav-cart-length">
+              <p>{cart.length}</p>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </div>
     </div>
   );

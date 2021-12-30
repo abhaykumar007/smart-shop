@@ -21,8 +21,12 @@ function DashBoard() {
   }
 
   useEffect(() => {
-    return getData();
-  }, []);
+    let isMounted = true;
+    getData();
+    return () => {
+      isMounted = false;
+    };
+  }, [product]);
 
   function handelViewMore(info) {
     localStorage.setItem("card", JSON.stringify(info));

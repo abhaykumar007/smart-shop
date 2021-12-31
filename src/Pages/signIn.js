@@ -18,7 +18,7 @@ import { signIn } from "./../Helpers/auth";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
-
+import { Redirect } from "react-router-dom";
 function Copyright(props) {
   return (
     <Typography
@@ -28,7 +28,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link to="/" color="inherit" href="https://mui.com/">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -55,14 +55,14 @@ export default function SignIn() {
       animationIn: ["animated", "animate__fadeIn"],
       animationOut: ["animated", "animate__fadeOut"],
       dismiss: {
-        duration: 2000,
+        duration: 1000,
       },
     });
   }
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (email && password && terms) {
+    if (email && password) {
       try {
         const user = await signIn(email, password);
 
@@ -81,7 +81,9 @@ export default function SignIn() {
       );
     }
   };
-
+  if (localStorage.getItem("userEcom")) {
+    return <Redirect to="/" />;
+  }
   return (
     <div>
       <ReactNotification />

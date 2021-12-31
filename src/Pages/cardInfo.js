@@ -7,6 +7,7 @@ import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
 import { useHistory } from "react-router-dom";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 
 function CardInfo() {
   const history = useHistory();
@@ -52,10 +53,10 @@ function CardInfo() {
     }
   }
   return (
-    <div>
+    <div className="cardinfo-parent">
       <ReactNotification />
       <NavBar />
-
+      <ArrowLeftIcon className="back-arrow" onClick={() => history.push("/")} />
       <main className="cardinfo">
         <div className="cardinfo-img">
           <img src={data.image} />

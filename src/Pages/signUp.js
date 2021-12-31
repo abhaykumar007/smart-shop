@@ -18,7 +18,7 @@ import { signUp } from "./../Helpers/auth";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
-
+import firebase from "./../firebase";
 function Copyright(props) {
   return (
     <Typography
@@ -28,7 +28,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link to="/" color="inherit" href="https://mui.com/">
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
@@ -62,6 +62,14 @@ export default function SignUp() {
     });
   }
 
+  function storeDB() {
+    firebase.database().ref("Ecom-user").push({
+      name,
+      lastName,
+      email,
+      password,
+    });
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("email", name, lastName, email, password, tick);
@@ -75,6 +83,7 @@ export default function SignUp() {
           `${name} ${lastName} Successfully Signup`,
           "success"
         );
+        storeDB();
         history.push("/signin");
       } catch (err) {
         console.log("error in signup", err);

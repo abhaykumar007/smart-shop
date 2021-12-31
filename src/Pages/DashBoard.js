@@ -17,16 +17,14 @@ function DashBoard() {
   async function getData() {
     let response = await fetch("https://fakestoreapi.com/products");
     let data = await response.json();
-    setProduct(data);
+    if (data) {
+      setProduct(data);
+    }
   }
 
   useEffect(() => {
-    let isMounted = true;
     getData();
-    return () => {
-      isMounted = false;
-    };
-  }, [product]);
+  }, []);
 
   function handelViewMore(info) {
     localStorage.setItem("card", JSON.stringify(info));

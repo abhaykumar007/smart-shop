@@ -71,7 +71,6 @@ function Cart() {
 
   function handelPlaceOrder() {
     notification("Wonderful!", "ORDER PLACED", "success");
-    localStorage.removeItem("cart");
     history.push("/checkout");
   }
 

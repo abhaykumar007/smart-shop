@@ -48,6 +48,9 @@ export default function Checkout() {
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
+    if (activeStep == steps.length - 1) {
+      localStorage.removeItem("cart");
+    }
   };
 
   const handleBack = () => {

@@ -56,7 +56,7 @@ function CardInfo() {
     <div className="cardinfo-parent">
       <ReactNotification />
       <NavBar />
-      <ArrowLeftIcon className="back-arrow" onClick={() => history.push("/")} />
+      <ArrowLeftIcon className="back-arrow" onClick={() => history.goBack()} />
       <main className="cardinfo">
         <div className="cardinfo-img">
           <img src={data.image} />

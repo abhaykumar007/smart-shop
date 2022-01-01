@@ -14,10 +14,10 @@ import { store } from "react-notifications-component";
 function NavBar() {
   const history = useHistory();
   const [userInfo, setuserInfo] = useState([]);
-  const [flag, setFlag] = useState("none");
+  const [flag, setFlag] = useState(false);
   let cart = JSON.parse(localStorage.getItem("cart"));
   let user = localStorage.getItem("userEcom");
-  console.log("navbar", user);
+  // console.log("navbar", user);
 
   useEffect(() => {
     if (user) {
@@ -51,27 +51,27 @@ function NavBar() {
             msg: currMsg,
           });
         });
-        console.log("Messages are", messages);
-        // setuserInfo(messages);
+        // console.log("Messages are", messages);
         setuserInfo(() =>
           messages.filter((element) => element.msg.email == user)
         );
       });
   };
-  console.log("userInfo", userInfo);
+  // console.log("userInfo", userInfo);
 
   function handelMouseOver() {
     setFlag(true);
   }
   function handelMouseLeave() {
-    setFlag("none");
+    setFlag(false);
   }
   async function handelSignOut() {
     try {
       await signout();
       notification("Thanks", "Your Successfully SignOut", "success");
       localStorage.removeItem("userEcom");
-      setFlag("none");
+      localStorage.removeItem("cart");
+      setFlag(false);
       setTimeout(() => history.push("/"), 1000);
     } catch (error) {
       console.log(error);
@@ -134,31 +134,35 @@ function NavBar() {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          display: flag,
-          marginLeft: "75vw",
-          marginTop: "2vh",
-          color: "#ffffff",
-          backgroundColor: "#232f3e",
-          padding: "2vh",
-          borderRadius: "15px",
-        }}
-      >
-        {user && userInfo.length > 0 ? (
-          <div>
-            <p>
-              Thanks for Shopping{" "}
-              <strong>
-                {userInfo[0].msg.name} {userInfo[0].msg.lastName}
-              </strong>
-              . We Hope You Came Back.
-            </p>
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
+      {flag ? (
+        <div
+          style={{
+            marginLeft: "75vw",
+            marginTop: "2vh",
+            color: "#ffffff",
+            backgroundColor: "#232f3e",
+            padding: "2vh",
+            borderRadius: "15px",
+          }}
+        >
+          {user && userInfo.length > 0 ? (
+            <div>
+              <p>
+                Thanks for Shopping{" "}
+                <strong>
+                  {userInfo[0].msg.name} {userInfo[0].msg.lastName}
+                </strong>
+                . <br />
+                We Hope You Came Back.
+              </p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

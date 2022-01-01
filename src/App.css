@@ -99,7 +99,8 @@
   /* margin-top: 1vh; */
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 5vh;
+  padding-bottom: 3vh;
+  margin-bottom: 5vh;
 }
 
 .cardinfo .cardinfo-img img {

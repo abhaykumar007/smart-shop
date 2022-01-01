@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import NavBar from "../components/navBar";
 import { signUp } from "./../Helpers/auth";
 import ReactNotification from "react-notifications-component";
@@ -99,6 +99,11 @@ export default function SignUp() {
       );
     }
   };
+
+  if (localStorage.getItem("userEcom")) {
+    // console.log("history", history);
+    return <Redirect to="/" />;
+  }
 
   return (
     <div>

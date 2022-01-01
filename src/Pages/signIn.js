@@ -70,7 +70,6 @@ export default function SignIn() {
         localStorage.setItem("userEcom", email);
         history.push("/");
       } catch (err) {
-        console.log("Error in Signing Up", err);
         notification("Error Occure", err.message, "danger");
       }
     } else {
@@ -82,6 +81,7 @@ export default function SignIn() {
     }
   };
   if (localStorage.getItem("userEcom")) {
+    // console.log("history", history);
     return <Redirect to="/" />;
   }
   return (

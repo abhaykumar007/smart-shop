@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 /* ============== Nav-Bar ============== */
 .nav-bar {
   display: flex;
@@ -10,12 +11,12 @@
   justify-content: space-evenly;
   box-shadow: 0px 5px 7px 1px #e4e1e1;
   align-items: center;
+  width: auto;
 }
 .nav-bar .nav-left img {
   height: 6vh;
 }
 .nav-bar .icon {
-  /* color: rgb(70, 67, 67); */
   color: rgb(73, 68, 68);
   font-size: 30px;
   cursor: pointer;
@@ -60,6 +61,44 @@
   margin-left: 2vw;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .nav-bar .nav-left img {
+    height: 3vh;
+  }
+  .nav-bar .icon {
+    color: rgb(73, 68, 68);
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .nav-bar .nav-input input {
+    background-color: rgb(245, 245, 246);
+    border-radius: 10px;
+    border: none;
+    font-size: 10px;
+    width: 20vw;
+  }
+  .nav-right .nav-cart .nav-cart-length p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #000000;
+  }
+  .nav-cart p {
+    font-size: 10px;
+    font-weight: 600;
+    color: #000000;
+  }
+  .nav-signOut button {
+    font-family: arial;
+    color: #000000 !important;
+    font-size: 9px;
+    border: 1px solid #ffab24;
+    padding: 3px 7px;
+    border-radius: 10px;
+    background: #ff9f00;
+    margin-left: 1vw;
+    cursor: pointer;
+  }
+}
 
 /* =============== DashBoard Card =================== */
 
@@ -68,21 +107,66 @@
   grid-template-columns: auto auto auto;
   row-gap: 5vw;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   margin-top: 10vh;
   margin-bottom: 10vh;
   text-align: center;
 }
 .dash-card .cardImg {
-  height: 30vh;
-  width: 10vw;
-  padding-left: 7vw;
+  height: 40vh;
+  width: 12vw;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 2vh;
   padding-top: 2vh;
 }
 .loading img {
-  margin-left: 25vw;
+  margin-left: 15vw;
   height: 50vh;
-  width: 20vw;
+  width: 40vw;
+}
+@media screen and (max-width: 1224px) {
+  .dash-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 5vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    text-align: center;
+  }
+  .dash-card .cardImg {
+    height: 32vh;
+    width: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dash-card {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 5vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    text-align: center;
+  }
+  .dash-card .cardImg {
+    height: 30vh;
+    width: 27vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+  }
+  .loading img {
+    margin-left: 7vw;
+    height: 35vh;
+    width: 60vw;
+  }
 }
 
 /* ================== Card Info ================ */
@@ -105,7 +189,6 @@
 .cardinfo .cardinfo-img img {
   height: 75vh;
   width: 25vw;
-  display: flex;
 }
 .cardinfo .cardinfo-details {
   height: 80vh;
@@ -113,9 +196,9 @@
 }
 .cardinfo .cardinfo-details .cardinfo-details-header h1 {
   font-size: 40px;
+  margin-bottom: 10vh;
 }
 .cardinfo .cardinfo-details .cardinfo-details-body {
-  margin-top: 10vh;
   display: flex;
   flex-direction: column;
 }
@@ -127,8 +210,8 @@
   margin-top: 3vh;
 }
 .cardinfo .cardinfo-details .cardinfo-details-body .cardinfo-details-button {
-  margin-top: 7vh;
   display: flex;
+  margin-top: 7vh;
 }
 .cardinfo .cardinfo-details .cardinfo-details-body .cardinfo-addToCart button {
   font-family: arial;
@@ -175,6 +258,43 @@
   background: #f35202;
 }
 
+@media screen and (max-width: 768px) {
+  .cardinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cardinfo .cardinfo-img img {
+    height: 60vh;
+    width: 60vw;
+  }
+  .cardinfo .cardinfo-details {
+    height: auto;
+    width: 90vw;
+    padding-bottom: 0.5vh;
+    margin-bottom: 0.5vh;
+  }
+  .cardinfo .cardinfo-details .cardinfo-details-header h1 {
+    margin-top: 3vh;
+    font-size: 30px;
+    margin-bottom: 2vh;
+  }
+  .cardinfo .cardinfo-details .cardinfo-details-body p {
+    font-size: 18px;
+  }
+  .cardinfo .cardinfo-details .cardinfo-details-body .cardinfo-details-button {
+    display: flex;
+    flex-direction: column;
+  }
+  .cardinfo
+    .cardinfo-details
+    .cardinfo-details-body
+    .cardinfo-details-button
+    .cardinfo-buyNow {
+    margin-top: 3vh;
+  }
+}
 /* ====================== Cart  ==================*/
 .cart-parent {
   display: flex;
@@ -258,7 +378,6 @@
   margin-bottom: 5vh;
   height: 30vh;
   width: 25vw;
-  position: sticky;
 }
 .cart-price h2 {
   margin-bottom: 1vh;
@@ -297,6 +416,7 @@
   padding: 15px 55px;
   border-radius: 10px;
   background: #fb641b;
+  margin-bottom: 5vh;
 }
 .cart-price button:hover {
   color: black !important;
@@ -327,21 +447,73 @@
   height: 70vh;
   width: 50vw;
 }
-
+@media screen and (max-width: 768px) {
+  .cart-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .cart .cart-main {
+    height: 45vh;
+    width: 80vw;
+    border: 1px solid rgb(196, 193, 193);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .cart .cart-img img {
+    height: 30vh;
+    width: 15vw;
+  }
+  .cart .cart-body {
+    height: 30vh;
+    width: 50vw;
+  }
+  .cart-body .cart-body-category {
+    display: flex;
+    align-items: center;
+  }
+  .cart-parent .cart-price {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 30vh;
+    width: 80vw;
+  }
+}
 /* ===================== Footer ================= */
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   color: #ffffff;
   background-color: #232f3e;
   padding: 5vh;
   cursor: pointer;
 }
+
 .footer p {
   padding-top: 2vh;
 }
 .footer p:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 500px) {
+  .footer {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 5vw;
+    flex-wrap: wrap;
+    color: #ffffff;
+    background-color: #232f3e;
+    padding: 5vh;
+    cursor: pointer;
+  }
+  .footer p {
+    padding-top: 2vh;
+  }
+  .footer p:hover {
+    text-decoration: underline;
+  }
 }
 
 /* =================  Carousel =================*/
@@ -350,6 +522,17 @@
 }
 .carousel .carouselCard img {
   height: 85vh;
+}
+
+@media screen and (max-width: 1224px) {
+  .carousel .carouselCard img {
+    height: 60vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .carousel .carouselCard img {
+    height: 30vh;
+  }
 }
 
 /* ================== Four0Four ============== */

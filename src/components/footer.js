@@ -13,14 +13,6 @@ function Footer() {
       </div>
 
       <div>
-        <h3>HELP</h3>
-        <p>Payments</p>
-        <p>Shipping</p>
-        <p>Cancellation & Returns</p>
-        <p>FAQ</p>
-      </div>
-
-      <div>
         <h3>POLICY</h3>
         <p>Return Policy</p>
         <p>Terms Of Use</p>
@@ -28,6 +20,14 @@ function Footer() {
         <p>Privacy</p>
         <p>Sitemap</p>
         <p>EPR compliance</p>
+      </div>
+      <div>
+        <h3>HELP</h3>
+        <p>Payments</p>
+        <p>Shipping</p>
+        <p>Cancellation</p>
+        <p>Return</p>
+        <p>FAQ</p>
       </div>
 
       <div>

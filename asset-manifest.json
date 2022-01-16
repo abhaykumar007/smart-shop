@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/smart-shop/static/css/main.cae5098c.css",
+    "main.css": "/smart-shop/static/css/main.1108bc2e.css",
     "main.js": "/smart-shop/static/js/main.1b641b1e.js",
     "static/js/787.f88991e5.chunk.js": "/smart-shop/static/js/787.f88991e5.chunk.js",
     "static/media/card2.png": "/smart-shop/static/media/card2.fa107726d4e9f5ecc63b.png",
@@ -12,12 +12,12 @@
     "static/media/card3.jpg": "/smart-shop/static/media/card3.239e7973135464b133f2.jpg",
     "static/media/logo.png": "/smart-shop/static/media/logo.179ae9550321b61f260c.png",
     "index.html": "/smart-shop/index.html",
-    "main.cae5098c.css.map": "/smart-shop/static/css/main.cae5098c.css.map",
+    "main.1108bc2e.css.map": "/smart-shop/static/css/main.1108bc2e.css.map",
     "main.1b641b1e.js.map": "/smart-shop/static/js/main.1b641b1e.js.map",
     "787.f88991e5.chunk.js.map": "/smart-shop/static/js/787.f88991e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cae5098c.css",
+    "static/css/main.1108bc2e.css",
     "static/js/main.1b641b1e.js"
   ]
 }

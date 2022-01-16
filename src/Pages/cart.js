@@ -98,7 +98,7 @@ function Cart() {
 
                   <div className="cart-body-category">
                     <h4>Category :</h4>
-                    <p>{element.category}</p>
+                    <p> {element.category}</p>
                   </div>
                   <div className="cart-body-category">
                     <h4>Rating : </h4>
